@@ -15,4 +15,6 @@ int main() {
 
 // 2 + 10 / 5 * 2 - 7 % 1
     printf("calcular: 2+10/5*2-7 modulo 1: %d --- ", 2+10/5*2-7%1);
+
+    return 0;
 }
