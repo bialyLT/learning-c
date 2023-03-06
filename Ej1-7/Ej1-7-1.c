@@ -26,4 +26,6 @@ int main() {
     printf("para finalizar presione un numero y enter...");
     scanf("%d", &end);
 
+    return 0;
+
 }
