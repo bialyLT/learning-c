@@ -11,14 +11,14 @@ int main() {
     float res;
 
     printf("ingrese un valor: ", x);
-    scanf("%d", &x);
+    scanf("%f", &x);
 
-    printf("ingrese un valor: ", y);
-    scanf("%d", &y);
+    printf("ingrese otro valor: ", y);
+    scanf("%f", &y);
 
     res = x / y;
 
-    printf("el resultado de la division es: %.3f", res);
+    printf("el resultado de la division es: %.3f\n", res);
 
 
 
