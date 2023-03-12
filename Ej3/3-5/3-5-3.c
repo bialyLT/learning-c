@@ -8,25 +8,22 @@ int main() {
         float num1, num2, num3;
 
     printf("ingrese un numero real: ");
-    scanf("%d", &num1);
+    scanf("%f", &num1);
 
     printf("ingrese un numero real: ");
-    scanf("%d", &num2);
+    scanf("%f", &num2);
 
     printf("ingrese un numero real: ");
-    scanf("%d", &num3);
+    scanf("%f", &num3);
 
-    if ((num1 > num2) && (num1 > num3)  )
-    {
-         printf("%.2f es mayor que %.2f y %.2f", num1, num2, num3);
-    }
-    else
-    {
-        if ((num2 > num1) && (num2 > num3)
-            printf("%d es mayor que %d", num2, num1);
-        else 
-            printf("los numeros son iguales");
-    }
+    if ((num1 > num2) && (num1 > num3))
+        printf("%.2f es mayor que %.2f y %.2f", num1, num2, num3);
+    
+    if ((num2 > num1) && (num2 > num3))
+        printf("%.2f es mayor que %.2f y %.2f", num2, num1, num3);
+    
+    if ((num3 > num1) && (num3 > num2))
+        printf("%.2f es mayor que %.2f y %.2f", num3, num1, num2);
 
     return 0;
 }
