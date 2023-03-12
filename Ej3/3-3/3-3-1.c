@@ -8,17 +8,22 @@
 
 int main()
 {
-    int num1, num2;
+    int num1, num2, op;
 
     printf("ingrese un numero entero: ");
     scanf("%d", &num1);
 
-    if (num1 == 0) printf("cualquier numero multiplicado por 0 es 0");
 
-    printf("ingrese un numero entero: ");
-    scanf("%d", &num2);
- 
-
-
+    if (num1 == 0) 
+    {
+        printf("cualquier numero multiplicado por 0 es 0");
+    }
+    else
+    {
+        printf("ingrese un numero entero: ");
+        scanf("%d", &num2);
+        op = num1 * num2;
+        printf("el resultado de %d * %d es: %d", num1, num2, op);
+    }
     return 0;
 }
