@@ -18,10 +18,10 @@ int main() {
 
     if ((num1 > num2) && (num1 > num3))
         printf("%.2f es mayor que %.2f y %.2f", num1, num2, num3);
-    
+
     if ((num2 > num1) && (num2 > num3))
         printf("%.2f es mayor que %.2f y %.2f", num2, num1, num3);
-    
+
     if ((num3 > num1) && (num3 > num2))
         printf("%.2f es mayor que %.2f y %.2f", num3, num1, num2);
 
