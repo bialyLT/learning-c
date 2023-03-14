@@ -8,9 +8,9 @@ int main() {
     int a, i;
 
     printf("introduzca un numero para descomponer: ");
-    scanf("%d", &a);
+    scanf("%ld", &a);
 
-    printf("%d = ", a);
+    printf("%ld = ", a);
 
     while (a != 1)
     {
@@ -19,7 +19,7 @@ int main() {
             if (a % i == 0)
             {
                 a = a / i;
-                printf("%d ", i);
+                printf("%ld ", i);
                 if (a != 1)
                     printf("* ");
                 break;
