@@ -11,7 +11,7 @@ int main() {
     char name[20];
 
     printf("ingrese su nombre: ");
-    gets(name);
+    fgets(name, 20, stdin);
 
     printf("ingrese su dia de nacimiento: ");
     scanf("%d", &dia_nac);
@@ -19,11 +19,7 @@ int main() {
     printf("ingrese su mes de nacimiento: ");
     scanf("%d", &mes_nac);
 
-    for (i = 0; i < strlen(name); i++)
-    {
-        printf("%c", name[i]);
-    }
-    printf(", nacido el %d/%d ", dia_nac, mes_nac);
+    printf("%s , nacido el %d/%d ", name, dia_nac, mes_nac);
 
     return 0;
 }
