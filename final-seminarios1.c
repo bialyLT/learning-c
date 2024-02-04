@@ -2,98 +2,66 @@
 // debemos hacer un menu para dar de alta cada automovil, mostrar todo lo que se cargo y buscar uno de los automoviles
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-struct reg {
-    char patente[7];
-    char marca[10];
-    int anio;
-};
+typedef struct {
+    char nombre[50];
+    char marca[50];
+    int modelo;
+} Automovil;
 
-char regSearch[6];
+Automovil registro[5];
+int contador = 0;
 
-
-void altaRegistro(struct reg registro[]) {
-
-    int i;
-
-    for (i = 0; i < 3; i++) {
-
-        printf("Ingrese la patente del automovil %d: ", i+1);
-        scanf("%s", registro[i].patente);
-
-        printf("Ingrese la marca del automovil %d: ", i+1);
-        scanf("%s", registro[i].marca);
-
-        printf("Ingrese el modelo del automovil %d: ", i+1);
-        scanf("%d", &registro[i].anio);
+void registrarAutomovil() {
+    if(contador < 5) {
+        printf("Ingrese el nombre del automovil: ");
+        scanf("%s", registro[contador].nombre);
+        printf("Ingrese la marca del automovil: ");
+        scanf("%s", registro[contador].marca);
+        printf("Ingrese el modelo del automovil: ");
+        scanf("%d", &registro[contador].modelo);
+        contador++;
+    } else {
+        printf("Registro lleno.\n");
     }
 }
 
-void mostrarRegistro(struct reg registro[]) {
-
-    int i;
-
-    for (i = 0; i < 3; i++) {
-
-      printf("auto numero %d: \n", i+1);
-
-      printf("patente: %s \n", registro[i].patente);
-
-      printf("marca: %s \n", registro[i].marca);
-
-      printf("anio: %d \n", &registro[i].anio);
-
+void mostrarAutomoviles() {
+    for(int i = 0; i < contador; i++) {
+        printf("Nombre: %s, Marca: %s, Modelo: %d\n", registro[i].nombre, registro[i].marca, registro[i].modelo);
     }
 }
 
-void buscarRegistro(struct reg registro[], char regtoSearch[]){
-
-    int encontrado;
-    int i;
-
-    for (i = 0; i < 3; i++){
-
-        if  (strcmp(regtoSearch, registro[i].patente) == 0){
-
-            encontrado = 1;
+void buscarAutomovil() {
+    char nombre[50];
+    printf("Ingrese el nombre del automovil que desea buscar: ");
+    scanf("%s", nombre);
+    for(int i = 0; i < contador; i++) {
+        if(strcmp(nombre, registro[i].nombre) == 0) {
+            printf("Nombre: %s, Marca: %s, Modelo: %d\n", registro[i].nombre, registro[i].marca, registro[i].modelo);
+            return;
         }
-        if (encontrado == 1) {
-
-            printf("el automovil solicitado tiene estos datos: ");
-
-            printf("patente: %s \n", registro[i].patente);
-
-            printf("marca: %s \n", registro[i].marca);
-
-            printf("anio: %d\n", &registro[i].anio);
-
-            break;
-
-        }
-
     }
-    if (encontrado != 1) {
-         printf("no se encontro el automovil solicitado");
-    }
+    printf("Automovil no encontrado.\n");
 }
 
-int main () {
-
-    struct reg registros[3];
-
-    altaRegistro(registros);
-
-    mostrarRegistro(registros);
-
-    printf("ingrese una patente para buscar: ");
-    scanf("%s", regSearch);
-    if  (regSearch) {
-
-        buscarRegistro(registros, regSearch);
-    }
-
-
+int main() {
+    int opcion;
+    do {
+        printf("1. Registrar automovil\n2. Mostrar automoviles\n3. Buscar automovil\n4. Salir\nSeleccione una opcion: ");
+        scanf("%d", &opcion);
+        switch(opcion) {
+            case 1:
+                registrarAutomovil();
+                break;
+            case 2:
+                mostrarAutomoviles();
+                break;
+            case 3:
+                buscarAutomovil();
+                break;
+        }
+    } while(opcion != 4);
     return 0;
 }
